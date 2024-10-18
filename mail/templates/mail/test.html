@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MailMaster Dashboard</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      background-color: #f9f9f9;
+    }
+    .sidebar {
+      width: 250px;
+      background-color: #7dd3fc;
+      padding: 20px;
+      min-height: 100vh;
+    }
+    .sidebar h1 {
+      color: white;
+      font-size: 24px;
+      margin-bottom: 40px;
+    }
+    .sidebar ul {
+      list-style: none;
+    }
+    .sidebar ul li {
+      margin: 20px 0;
+    }
+    .sidebar ul li a {
+      text-decoration: none;
+      color: white;
+      font-size: 18px;
+      display: flex;
+      align-items: center;
+    }
+    .sidebar ul li a:hover {
+      color: #f0f0f0;
+    }
+    .sidebar .profile {
+      margin-top: 50px;
+      display: flex;
+      align-items: center;
+    }
+    .sidebar .profile img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      margin-right: 10px;
+    }
+    .sidebar .profile div {
+      color: white;
+    }
+    .sidebar .profile div p {
+      font-size: 14px;
+    }
+    .main-content {
+      flex-grow: 1;
+      padding: 30px;
+    }
+    .dashboard {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .dashboard h2 {
+      font-size: 28px;
+    }
+    .dashboard .search-bar {
+      display: flex;
+      align-items: center;
+      background-color: #f0f0f0;
+      padding: 8px;
+      border-radius: 25px;
+      width: 200px;
+    }
+    .dashboard .search-bar input {
+      border: none;
+      background-color: transparent;
+      outline: none;
+      width: 100%;
+    }
+    .dashboard .search-bar input::placeholder {
+      color: gray;
+    }
+    .dashboard-cards {
+      display: flex;
+      margin-top: 30px;
+    }
+    .card {
+      width: 180px;
+      padding: 20px;
+      border-radius: 10px;
+      margin-right: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    .card-blue {
+      background-color: #bfdbfe;
+    }
+    .card-yellow {
+      background-color: #fef08a;
+    }
+    .card-green {
+      background-color: #a7f3d0;
+    }
+    .card h3 {
+      font-size: 22px;
+      margin-bottom: 10px;
+    }
+    .card p {
+      font-size: 40px;
+      font-weight: bold;
+    }
+    .compose-btn {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background-color: #22d3ee;
+      color: white;
+      padding: 15px 30px;
+      border-radius: 50px;
+      font-size: 18px;
+      border: none;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="sidebar">
+    <h1>MailMaster</h1>
+    <ul>
+      <li><a href="#"><img src="home-icon.png" alt="" /> Home</a></li>
+      <li><a href="#"><img src="inbox-icon.png" alt="" /> Inbox</a></li>
+      <li><a href="#"><img src="analytics-icon.png" alt="" /> Analytics</a></li>
+      <li><a href="#"><img src="profile-icon.png" alt="" /> Profile</a></li>
+      <li><a href="#"><img src="settings-icon.png" alt="" /> Settings</a></li>
+    </ul>
+    <div class="profile">
+      <img src="user-avatar.png" alt="Profile Picture">
+      <div>
+        <p>John Doe</p>
+        <p>john@example.com</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="main-content">
+    <div class="dashboard">
+      <h2>Dashboard</h2>
+      <div class="search-bar">
+        <input type="text" placeholder="Search...">
+      </div>
+    </div>
+
+    <div class="dashboard-cards">
+      <div class="card card-blue">
+        <h3>Total Emails</h3>
+        <p>1,234</p>
+      </div>
+      <div class="card card-yellow">
+        <h3>Unread</h3>
+        <p>42</p>
+      </div>
+      <div class="card card-green">
+        <h3>Sent Today</h3>
+        <p>18</p>
+      </div>
+    </div>
+  </div>
+
+  <button class="compose-btn">+ Compose</button>
+
+</body>
+</html>

@@ -1,0 +1,194 @@
+{% extends "mail/layout.html" %}
+{% load static %}
+
+{% block body %}
+
+    <div class="col col-sm-8 col-md-7 col-lg-4 mx-auto ">
+        <div class="card border rounded-lg mt-5 p-5 m-2 shadow-sm">
+        <div class="card-body text-center">
+           <img src="{% static 'logo.png' %}" aria-hidden="true" style="width:209px;height:40px">
+            <h3 class="card-title mt-3 mb-0 pb-0 font-weight-normal">Sign in</h3>
+            <p class="mb-4 ">to continue to Gmail</p>
+            {% if message %}
+            <div>{{ message }}</div>
+            {% endif %}
+    
+            <form action="{% url 'login' %}" method="post" >
+            {% csrf_token %}
+            <div class="form-group border-bottom pr-2">
+                <input autofocus class="form-control" type="text" name="email" placeholder="Enter Your Email...">
+            </div>
+            <div class="form-group border-bottom">
+                <input class="form-control" type="password" name="password" placeholder="Enter Your Password...">
+            </div>
+            <input class="btn btn-primary col-md-6 my-3" type="submit" value="Login">
+            </form>
+    
+            Don't have an account? <a href="{% url 'register' %}">Register here.</a>
+    
+        </div>
+    </div>
+    </div>
+    <style>
+        /* General styling */
+body {
+    background-color: white;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    color: #333;
+}
+
+h3, p {
+    margin: 0;
+    color: #333;
+}
+
+a {
+    color: #65d5e1;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+/* Center the card and make it responsive */
+.card {
+    background-color: white;
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    transition: all 0.3s ease-in-out;
+    margin: 0 auto;
+}
+
+.card:hover {
+    box-shadow: 0px 8px 30px rgba(0, 0, 0, 0.15);
+}
+
+.card-body img {
+    max-width: 100%;
+    height: auto;
+}
+
+.card-title {
+    color: #333;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+p {
+    color: #777;
+    font-size: 1rem;
+}
+
+form {
+    margin-top: 20px;
+}
+
+.form-group input {
+    border: none;
+    border-bottom: 2px solid #ccc;
+    padding: 12px 10px;
+    font-size: 1rem;
+    color: #333;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus {
+    border-color: #65d5e1;
+    outline: none;
+}
+
+.btn-primary {
+    background-color: #65d5e1;
+    border: none;
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 12px 0;
+    color: white;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #55c0cc;
+}
+
+/* Responsive styling */
+@media (max-width: 768px) {
+    .card {
+        padding: 30px;
+    }
+
+    .btn-primary {
+        width: 100%;
+    }
+}
+
+/* Message box */
+.message {
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    border: 1px solid #f5c6cb;
+}
+
+/* Additional styling for smooth transition effects */
+input::placeholder {
+    color: #aaa;
+}
+
+input[type="submit"] {
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #55c0cc;
+}
+
+/* Link styling */
+a {
+    font-weight: 500;
+}
+
+a:hover {
+    color: #009fad;
+    text-decoration: underline;
+}
+
+@property --angle{
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+.card::after, .card::before{
+  content: '';
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-image: conic-gradient(from var(--angle), #ff4545, #00ff99, #006aff, #ff0095, #ff4545);
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  z-index: -1;
+  padding: 3px;
+  border-radius: 10px;
+  animation: 3s spin linear infinite;
+}
+.card::before{
+  filter: blur(1.5rem);
+  opacity: 0.5;
+}
+@keyframes spin{
+  from{
+    --angle: 0deg;
+  }
+  to{
+    --angle: 360deg;
+  }
+}
+    </style>
+{% endblock %}
